@@ -5,82 +5,82 @@ import java.io.IOException;
 public class GameInstallation {
 
     public static void main(String[] args) {
-        File gamesDirectory = new File("D://Games//NewJavaGame");
+        File gamesDirectory = new File("D://Games//GunRunner");
         StringBuilder log = new StringBuilder();
 
         if (gamesDirectory.exists() || gamesDirectory.mkdirs()) {
-            log.append("Directory 'Games' created successfully.\n");
+            log.append("Успешно создана директория Games.\n");
 
             File srcDirectory = new File(gamesDirectory, "src");
             if (srcDirectory.mkdirs()) {
-                log.append("Directory 'src' created successfully.\n");
+                log.append("Успешно создана директория src.\n");
 
                 File mainDirectory = new File(srcDirectory, "main");
                 if (mainDirectory.mkdirs()) {
-                    log.append("Directory 'main' created successfully.\n");
+                    log.append("Успешно создана директория main.\n");
 
                     try {
                         File mainJavaFile = new File(mainDirectory, "Main.java");
                         if (mainJavaFile.createNewFile()) {
-                            log.append("File 'Main.java' created successfully.\n");
+                            log.append("Успешно создан файл Main.java.\n");
                         } else {
-                            log.append("Failed to create file 'Main.java'.\n");
+                            log.append("Не удалось создать Main.java.\n");
                         }
 
                         File utilsJavaFile = new File(mainDirectory, "Utils.java");
                         if (utilsJavaFile.createNewFile()) {
-                            log.append("File 'Utils.java' created successfully.\n");
+                            log.append("Успешно создан файл Utils.java.\n");
                         } else {
-                            log.append("Failed to create file 'Utils.java'.\n");
+                            log.append("Не удалось создать файл Utils.java.\n");
                         }
                     } catch (IOException e) {
-                        log.append("An error occurred while creating files in 'main'.\n");
+                        log.append("Ошибка при создании файлов в директории main.\n");
                     }
                 } else {
-                    log.append("Failed to create directory 'main'.\n");
+                    log.append("Не удалось создать директорию main.\n");
                 }
 
                 File resDirectory = new File(gamesDirectory, "res");
                 if (resDirectory.mkdirs()) {
-                    log.append("Directory 'res' created successfully.\n");
+                    log.append("Успешно создана директория res.\n");
 
                 } else {
-                    log.append("Failed to create directory 'res'.\n");
+                    log.append("Не удалось создать директорию res.\n");
                 }
 
                 File savegamesDirectory = new File(gamesDirectory, "savegames");
                 if (savegamesDirectory.mkdirs()) {
-                    log.append("Directory 'savegames' created successfully.\n");
+                    log.append("Успешно создана директория savegames.\n");
                 } else {
-                    log.append("Failed to create directory 'savegames'.\n");
+                    log.append("Не удалось создать директорию savegames.\n");
                 }
 
                 File tempDirectory = new File(gamesDirectory, "temp");
                 if (tempDirectory.mkdirs()) {
-                    log.append("Directory 'temp' created successfully.\n");
+                    log.append("Успешно создана директория temp.\n");
 
                     try {
                         File tempFile = new File(tempDirectory, "temp.txt");
                         if (tempFile.createNewFile()) {
-                            log.append("File 'temp.txt' created successfully.\n");
+                            log.append("Успешно создан файл temp.txt.\n");
 
                             FileWriter writer = new FileWriter(tempFile);
                             writer.write(log.toString());
                             writer.close();
                         } else {
-                            log.append("Failed to create file 'temp.txt'.\n");
+                            log.append("Не удалось создать temp.txt.\n");
                         }
                     } catch (IOException e) {
-                        log.append("An error occurred while creating 'temp.txt'.\n");
+                        log.append("Произошла ошибка при создании temp.txt.\n");
                     }
                 } else {
-                    log.append("Failed to create directory 'temp'.\n");
+                    log.append("Не удалось создать директорию temp.\n");
                 }
             } else {
-                log.append("Failed to create directory 'src'.\n");
+                log.append("Не удалось создать директорию src.\n");
             }
         } else {
-            log.append("Failed to create directory 'Games'.\n");
+            log.append("Не удалось создать директорию Games.\n");
         }
 
         System.out.println(log.toString());
